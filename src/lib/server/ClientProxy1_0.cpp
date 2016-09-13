@@ -100,6 +100,8 @@ ClientProxy1_0::addHeartbeatTimer()
 {
 	if (m_heartbeatAlarm > 0.0) {
 		m_heartbeatTimer = m_events->newOneShotTimer(m_heartbeatAlarm, this);
+		
+		LOG((CLOG_DEBUG "add heartbeat timer"));
 	}
 }
 
@@ -109,6 +111,8 @@ ClientProxy1_0::removeHeartbeatTimer()
 	if (m_heartbeatTimer != NULL) {
 		m_events->deleteTimer(m_heartbeatTimer);
 		m_heartbeatTimer = NULL;
+		
+		LOG((CLOG_DEBUG "remove heartbeat timer"));
 	}
 }
 

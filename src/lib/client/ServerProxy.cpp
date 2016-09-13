@@ -90,6 +90,8 @@ ServerProxy::resetKeepAliveAlarm()
 		m_events->removeHandler(Event::kTimer, m_keepAliveAlarmTimer);
 		m_events->deleteTimer(m_keepAliveAlarmTimer);
 		m_keepAliveAlarmTimer = NULL;
+		
+		LOG((CLOG_DEBUG "clear keep alive alarm"));
 	}
 	if (m_keepAliveAlarm > 0.0) {
 		m_keepAliveAlarmTimer =
@@ -97,6 +99,8 @@ ServerProxy::resetKeepAliveAlarm()
 		m_events->adoptHandler(Event::kTimer, m_keepAliveAlarmTimer,
 							new TMethodEventJob<ServerProxy>(this,
 								&ServerProxy::handleKeepAliveAlarm));
+		
+		LOG((CLOG_DEBUG "reset keep alive alarm"));
 	}
 }
 
