@@ -151,7 +151,7 @@ ClientProxy1_0::handleData(const Event&, void*)
 		}
 
 		// parse message
-		LOG((CLOG_DEBUG2 "msg from \"%s\": %c%c%c%c", getName().c_str(), code[0], code[1], code[2], code[3]));
+		LOG((CLOG_DEBUG "msg from \"%s\": %c%c%c%c", getName().c_str(), code[0], code[1], code[2], code[3]));
 		if (!(this->*m_parser)(code)) {
 			LOG((CLOG_ERR "invalid message from client \"%s\": %c%c%c%c", getName().c_str(), code[0], code[1], code[2], code[3]));
 			disconnect();

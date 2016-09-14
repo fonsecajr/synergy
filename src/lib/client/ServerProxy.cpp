@@ -126,7 +126,7 @@ ServerProxy::handleData(const Event&, void*)
 		}
 
 		// parse message
-		LOG((CLOG_DEBUG2 "msg from server: %c%c%c%c", code[0], code[1], code[2], code[3]));
+		LOG((CLOG_DEBUG "msg from server: %c%c%c%c", code[0], code[1], code[2], code[3]));
 		switch ((this->*m_parser)(code)) {
 		case kOkay:
 			break;
